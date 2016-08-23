@@ -1,0 +1,21 @@
+model {
+    for (i in 1:10)
+    {
+        for (j in 1:132)
+        {
+			cholera_web[j, i] ~ dpois(mu[j, i])
+			mu[j, i] <- exp(log_mu[j, i])
+			log_mu[j, i] <- beta0[i] + inprod(Z.block[j, ], u[i, ])
+		}
+	}
+	for (i in 1:10)
+	{
+	    for (j in 1:k)
+		{
+		     u[i, j] ~ dnorm(0, tau_u_sq[i])
+		}
+	 	tau_u_sq[i] ~ dgamma(1, 1)
+	 	beta0[i] ~ dnorm(0, 0.001)
+	}
+ }
+ 

@@ -1,0 +1,9 @@
+**/.DS_Store
+**/.Rhistory
+
+Report/**
+!Report/Mstat_Shaojun.pdf
+
+References/**
+
+Slides/slides.rmd
